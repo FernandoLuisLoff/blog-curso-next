@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import clsx from "clsx";
 
 type PostCoverImageProps = {
     imageProps: React.ComponentProps<typeof Image>;
@@ -8,9 +9,26 @@ type PostCoverImageProps = {
 
 export function PostCoverImage({ imageProps, linkProps }: PostCoverImageProps) {
     return (
-        <Link className="w-full h-full overflow-hidden rounded-xl" {...linkProps}>
+        <Link 
+            className={clsx(
+                'w-full',
+                'h-full',
+                'overflow-hidden',
+                'rounded-xl',
+                linkProps.className
+            )}
+            {...linkProps}
+        >
             <Image
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition"
+                className={clsx(
+                    'w-full',
+                    'h-full',
+                    'object-cover',
+                    'object-center',
+                    'group-hover:scale-105',
+                    'transition',
+                    imageProps.className
+                )}
                 {...imageProps}
                 alt={imageProps.alt}
             />
