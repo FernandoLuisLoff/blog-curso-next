@@ -8,6 +8,13 @@
       "when": 1766776412390,
       "tag": "0000_dry_layla_miller",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1766777127560,
+      "tag": "0001_nebulous_king_bedlam",
+      "breakpoints": true
     }
   ]
 }
