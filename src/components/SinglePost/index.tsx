@@ -1,4 +1,4 @@
-import { findPostBySlugCached } from "@/lib/post/queries";
+import { findPublicPostsBySlugCached } from "@/lib/post/queries/public";
 import Image from "next/image";
 import { PostHeading } from "../PostHeading";
 import { PostDate } from "../PostDate";
@@ -9,7 +9,7 @@ type SiglePostProps = {
 }
 
 export async function SiglePost({slug}: SiglePostProps) {
-    const post = await findPostBySlugCached(slug);
+    const post = await findPublicPostsBySlugCached(slug);
     return (
         <article className="mb-16">
             <header className="group flex flex-col gap-4 mb-4">
