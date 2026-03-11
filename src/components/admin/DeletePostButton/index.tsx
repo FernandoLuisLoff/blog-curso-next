@@ -33,7 +33,6 @@ export function DeletePostButton({ id, title }: DeletePostButtonProps) {
             }
             toast.success('Post excluído com sucesso');
         });
-
     }
     return (
         <>

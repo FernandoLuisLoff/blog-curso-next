@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Button } from "../Button";
 
 type DialogProps = {
     isVisible?: boolean;
@@ -22,12 +23,10 @@ export function Dialog({
     disabled = false
 }: DialogProps) {
     if (!isVisible) return null;
-
     function handleCancel() {
         if (disabled) return;
         if (onCancel) onCancel();
     }
-
     return (
         <div
             className={clsx(
@@ -55,32 +54,12 @@ export function Dialog({
                 <h3 id='dialog-title' className='text-xl font-extrabold'>{title}</h3>
                 <div id='dialog-description'>{content}</div>
                 <div className='flex justify-around gap-4'>
-                    <button
-                        className={clsx(
-                            'flex items-center justify-center py-2 px-4 rounded-lg',
-                            'bg-slate-200 hover:bg-slate-300 text-slate-950',
-                            'disabled:bg-slate-200 disabled:text-slate-400',
-                            'cursor-pointer',
-                            'transition'
-                        )}
-                        onClick={handleCancel}
-                        disabled={disabled}
-                        autoFocus
-                    >
+                    <Button variant="ghost" onClick={handleCancel} disabled={disabled} autoFocus>
                         {cancelLabel}
-                    </button>
-                    <button className={clsx(
-                        'flex items-center justify-center py-2 px-4 rounded-lg',
-                        'bg-blue-500 hover:bg-blue-600 text-blue-50',
-                        'disabled:bg-slate-200 disabled:text-slate-400',
-                        'cursor-pointer',
-                        'transition'
-                    )}
-                        onClick={onConfirm}
-                        disabled={disabled}
-                    >
+                    </Button>
+                    <Button variant="default" onClick={onConfirm} disabled={disabled}>
                         {confirmLabel}
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>
